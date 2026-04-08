@@ -9,11 +9,10 @@ const app = express()
 import cors from 'cors'
 
 app.use(cors({
- origin: process.env.ALLOWED_ORIGINS.split(','),
- // credentials: true   // Habilita o envio de cookies para o front-end
+  origin: process.env.ALLOWED_ORIGINS.split(','),
+  // credentials: true   // Habilita o envio de cookies para o front-end
 }))
 
-app.use(logger('dev'))
 app.use(json())
 app.use(urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -29,6 +28,6 @@ import carsRoute from './routes/cars.js'
 app.use('/cars', carsRoute)
 
 import usersRoute from './routes/users.js'
-app.use('/cars', usersRoute)
+app.use('/users', usersRoute)
 
 export default app
