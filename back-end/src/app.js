@@ -17,10 +17,11 @@ app.use(json())
 app.use(urlencoded({ extended: false }))
 app.use(cookieParser())
 
+// (...código existente...)
+
 app.use('/', indexRouter)
 
 /******* MIDDLEWARE DE AUTENTICAÇÃO *******/
-
 
 import authMiddleware from './middleware/auth.js'
 app.use(authMiddleware)
@@ -35,8 +36,5 @@ app.use('/cars', carsRoute)
 
 import usersRoute from './routes/users.js'
 app.use('/users', usersRoute)
-
-import sellersRoute from './routes/sellers.js'
-app.use('/sellers', sellersRoute)
 
 export default app
